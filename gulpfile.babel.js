@@ -251,6 +251,28 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
   });
 });
 
-// Load custom tasks from the `tasks` directory
-// Run: `npm install --save-dev require-dir` from the command-line
-// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+gulp.task('deploy', ['default'], () => {
+  var bucket = process.env.PWA_SAMPLE_AWS_S3_BUCKET;
+
+  if(!bucket){
+    console.error("define AWS S3 bucket name to environment variable PWA_SAMPLE_AWS_S3_BUCKET");
+    return;
+  }
+  // create a new publisher
+  const publisher = $.awspublish.create({
+    params: {
+      'Bucket': bucket
+    }
+  });
+
+  // define custom headers
+  const headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+
+  return gulp.src('dist/**/*.*')
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.sync())
+    .pipe(publisher.cache())
+    .pipe($.awspublish.reporter());
+});
