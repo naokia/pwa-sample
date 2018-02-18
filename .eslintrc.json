@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "globals": {
+    "Vue": true
+  }
+
+}
