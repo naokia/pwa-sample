@@ -252,10 +252,10 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
 });
 
 gulp.task('deploy', ['default'], () => {
-  var bucket = process.env.PWA_SAMPLE_AWS_S3_BUCKET;
+  const bucket = process.env.PWA_SAMPLE_AWS_S3_BUCKET;
 
-  if(!bucket){
-    console.error("define AWS S3 bucket name to environment variable PWA_SAMPLE_AWS_S3_BUCKET");
+  if (!bucket) {
+    console.error('define AWS S3 bucket name to environment variable PWA_SAMPLE_AWS_S3_BUCKET');
     return;
   }
   // create a new publisher
