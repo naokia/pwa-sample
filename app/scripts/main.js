@@ -72,11 +72,13 @@
     });
   }
 
-  Vue.component('todo-app', {
-    template: '<div>yeah!!</div>'
-  });
+  const VueRouter = require('vue-router');
+  Vue.use(VueRouter);
 
-  const vm = new Vue({
-      el: "#app"
-  })
+  const router = new VueRouter({history: true});
+  router.map({});
+
+  const App = import('./components/app.vue');
+
+  router.start(App, '#app');
 })();
