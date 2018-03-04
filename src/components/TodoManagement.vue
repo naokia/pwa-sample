@@ -2,7 +2,7 @@
   <div>
     <h1>TODO List</h1>
     <ul>
-      <todo v-for="item in items" v-bind:todo="item"></todo>
+      <todo v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></todo>
     </ul>
   </div>
 </template>
@@ -16,10 +16,19 @@ export default {
   data () {
     return {
       items: [
-        { text: 'clean room' },
-        { text: 'feed the cat' },
-        { text: 'shaving' }
+        { id: 0, text: 'clean room', done: false },
+        { id: 1, text: 'feed the cat', done: false },
+        { id: 2, text: 'shaving', done: false }
       ]
+    }
+  },
+  methods: {
+    switchStatus (id) {
+      if (this.items[id].done) {
+        this.items[id].done = false
+      } else {
+        this.items[id].done = true
+      }
     }
   }
 }
