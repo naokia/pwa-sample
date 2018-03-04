@@ -2,17 +2,17 @@
   <div>
     <h1>TODO List</h1>
     <ul>
-      <todo v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></todo>
+      <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
     </ul>
   </div>
 </template>
 
 <script>
-import Todo from '@/components/Todo'
+import TodoItem from '@/components/TodoItem'
 
 export default {
   name: 'TodoManagement',
-  components: { Todo },
+  components: { TodoItem },
   data () {
     return {
       items: [

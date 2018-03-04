@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'todo',
+    name: 'TodoItem',
     props: ['todo']
   }
 </script>
