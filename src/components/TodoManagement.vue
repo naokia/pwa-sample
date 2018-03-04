@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>TODO List</h1>
+    <input v-model="newTodoText" placeholder="input your todo">
+    <button v-on:click="add">add</button>
     <ul>
       <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
     </ul>
@@ -15,6 +17,7 @@ export default {
   components: { TodoItem },
   data () {
     return {
+      newTodoText: '',
       items: [
         { id: 0, text: 'clean room', done: false },
         { id: 1, text: 'feed the cat', done: false },
@@ -29,6 +32,10 @@ export default {
       } else {
         this.items[id].done = true
       }
+    },
+    add () {
+      this.items.push({ id: this.items.length, text: this.newTodoText, done: false })
+      this.newTodoText = ''
     }
   }
 }
