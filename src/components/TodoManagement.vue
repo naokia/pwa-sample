@@ -16,6 +16,8 @@
 <script>
 import TodoItem from '@/components/TodoItem'
 import DateTime from 'vuejs-datetimepicker'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'TodoManagement',

@@ -1117,6 +1117,10 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
+bootstrap:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
+
 bootstrap-vue@1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-1.5.0.tgz#d56bbbf9cc75461af357633ed1bf63a527f374bf"
@@ -6799,6 +6803,13 @@ strip-indent@^1.0.1:
 strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
+
+style-loader:
+  version "0.20.3"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.3.tgz#ebef06b89dec491bcb1fdb3452e913a6fd1c10c4"
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.5"
 
 supports-color@^2.0.0:
   version "2.0.0"
