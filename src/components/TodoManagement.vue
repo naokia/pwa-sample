@@ -2,6 +2,7 @@
   <div>
     <h1>TODO List</h1>
     <input v-model="newTodoText" placeholder="input your todo">
+    <DateTime format="YYYY-MM-DD h:i:s" width="100px"></DateTime>
     <button v-on:click="add">add</button>
     <ul>
       <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
@@ -11,10 +12,11 @@
 
 <script>
 import TodoItem from '@/components/TodoItem'
+import DateTime from 'vuejs-datetimepicker'
 
 export default {
   name: 'TodoManagement',
-  components: { TodoItem },
+  components: { TodoItem, DateTime },
   data () {
     return {
       newTodoText: '',
