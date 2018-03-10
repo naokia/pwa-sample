@@ -1,6 +1,6 @@
 <template>
   <div v-on:click="$emit('switchStatus', todo.id)">
-    {{ todo.text }}
+    {{ todo.text }} {{ todo.dueDateTime }}
   </div>
 </template>
 

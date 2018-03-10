@@ -2,7 +2,7 @@
   <div>
     <h1>TODO List</h1>
     <input v-model="newTodoText" placeholder="input your todo">
-    <DateTime format="YYYY-MM-DD h:i:s" width="100px"></DateTime>
+    <DateTime format="YYYY-MM-DD h:i:s" v-model='newDateTime' width="100px"></DateTime>
     <button v-on:click="add">add</button>
     <ul>
       <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
@@ -20,10 +20,8 @@ export default {
   data () {
     return {
       newTodoText: '',
+      newDateTime: null,
       items: [
-        { id: 0, text: 'clean room', done: false },
-        { id: 1, text: 'feed the cat', done: false },
-        { id: 2, text: 'shaving', done: false }
       ]
     }
   },
@@ -36,7 +34,7 @@ export default {
       }
     },
     add () {
-      this.items.push({ id: this.items.length, text: this.newTodoText, done: false })
+      this.items.push({ id: this.items.length, text: this.newTodoText, dueDateTime: this.newDateTime, done: false })
       this.newTodoText = ''
     }
   }
@@ -51,5 +49,9 @@ h1, h2 {
 
 a {
   color: #35495E;
+}
+
+.year-month-wrapper {
+  background-color: #35495E
 }
 </style>
