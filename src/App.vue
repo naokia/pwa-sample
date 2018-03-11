@@ -3,9 +3,11 @@
     <header>
       <span>Vue.js PWA</span>
     </header>
-    <main>
-      <router-view></router-view>
-    </main>
+    <div class="container">
+      <main>
+        <router-view></router-view>
+      </main>
+    </div>
   </div>
 </template>
 

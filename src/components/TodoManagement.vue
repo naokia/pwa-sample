@@ -1,15 +1,34 @@
 <template>
   <div>
-    <h1>TODO List</h1>
-    <div v-if="errors.length" class="alert alert-warning">
-      <ul><li v-for="error in errors">{{ error }}</li></ul>
+    <div class="row">
+      <h1>TODO List</h1>
+      <div v-if="errors.length" class="alert alert-warning">
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+      </div>
     </div>
-    <input v-model="newTodoText" placeholder="input your todo">
-    <DateTime format="YYYY-MM-DD h:i:s" v-model='newDateTime' width="100px"></DateTime>
-    <button v-on:click="add">add</button>
-    <ul>
-      <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
-    </ul>
+    <div class="row">
+      <div class="col-xs-9">
+        <input v-model="newTodoText" placeholder="input your todo" class="input-sm">
+      </div>
+      <div class="col-sm-3">
+        <DateTime format="YYYY-MM-DD h:i:s" v-model='newDateTime' class="date-picker"></DateTime>
+      </div>
+      <div class="col-xs-9">
+        <button v-on:click="add">add</button>
+      </div>
+    </div>
+    <div class="row">
+      <table>
+        <tr>
+          <th>Done</th>
+          <th>TODO</th>
+          <th>Due DateTime</th>
+        </tr>
+        <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -46,6 +65,7 @@ export default {
       if (this.errors.length > 0) return
       this.items.push({ id: this.items.length, text: this.newTodoText, dueDateTime: this.newDateTime, done: false })
       this.newTodoText = ''
+      this.newDateTime = null
     }
   }
 }
@@ -53,15 +73,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1, h2 {
-  font-weight: normal;
-}
+  h1, h2 {
+    font-weight: normal;
+  }
 
-a {
-  color: #35495E;
-}
+  a {
+    color: #35495E;
+  }
 
-.year-month-wrapper {
-  background-color: #35495E
-}
 </style>
