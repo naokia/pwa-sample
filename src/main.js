@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 
+Notification.requestPermission(function (status) {
+  console.log('Notification permission status:', status);
+})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
