@@ -26,7 +26,7 @@
           <th>TODO</th>
           <th>Due DateTime</th>
         </tr>
-        <TodoItem v-for="item in items" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
+        <TodoItem v-for="item in notDones" v-bind:todo="item" @switchStatus="switchStatus" v-if="!item.done"></TodoItem>
       </table>
     </div>
   </div>
@@ -37,6 +37,7 @@ import TodoItem from '@/components/TodoItem'
 import DateTime from 'vuejs-datetimepicker'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'TodoManagement',
@@ -45,25 +46,25 @@ export default {
     return {
       errors: [],
       newTodoText: '',
-      newDateTime: null,
-      items: [
-      ]
+      newDateTime: null
     }
+  },
+  computed: {
+    ...mapGetters([
+      'lastIndex',
+      'notDones'
+    ])
   },
   methods: {
     switchStatus (id) {
-      if (this.items[id].done) {
-        this.items[id].done = false
-      } else {
-        this.items[id].done = true
-      }
+      this.$store.commit('done', id)
     },
     add () {
       this.errors = []
       if (!this.newTodoText) this.errors.push('Input todo')
       if (!this.newDateTime) this.errors.push('Select due datetime')
       if (this.errors.length > 0) return
-      this.items.push({ id: this.items.length, text: this.newTodoText, dueDateTime: this.newDateTime, done: false })
+      this.$store.commit('add', { id: this.lastIndex, text: this.newTodoText, dueDateTime: this.newDateTime, done: false })
       this.newTodoText = ''
       this.newDateTime = null
     }

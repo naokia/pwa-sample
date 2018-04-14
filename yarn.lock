@@ -6971,38 +6971,6 @@ process@^0.11.0, process@^0.11.10:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
-productboard/webpack-deploy:
-  name webpack-deploy
-  version "0.13.1"
-  resolved "https://codeload.github.com/productboard/webpack-deploy/tar.gz/22a7a8516f58f0336d4a7fab6422f3a132061497"
-  dependencies:
-    async "^1.4.2"
-    autoprefixer-core "^5.2.1"
-    bluebird "^3.5.0"
-    fullname "^3.0.0"
-    git-rev-promises "^1.0.8"
-    gitlog "^2.0.1"
-    glob "^7.1.2"
-    gulp "^3.9.0"
-    gulp-awspublish "^2.0.2"
-    gulp-clean "^0.3.1"
-    gulp-if "^2.0.2"
-    gulp-rename "^1.2.2"
-    gulp-svgmin "^1.2.0"
-    gulp-svgstore "^5.0.4"
-    gulp-util "^3.0.6"
-    gulp-webpack "^1.5.0"
-    html-webpack-plugin "^1.6.1"
-    object-assign "^4.0.1"
-    promise-redis "^0.0.5"
-    redis "^0.12.1"
-    request "^2.61.0"
-    request-promise-native "^1.0.4"
-    require-dir "^0.3.2"
-    superagent "^1.3.0"
-    webpack "^1.11.0"
-    yargs "^8.0.2"
-
 progress@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
@@ -8981,6 +8949,10 @@ vuejs-datetimepicker:
   dependencies:
     vue "^2.3.3"
 
+vuex:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
+
 watchpack@^0.2.1:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-0.2.9.tgz#62eaa4ab5e5ba35fdfc018275626e3c0f5e3fb0b"
@@ -9020,6 +8992,37 @@ webpack-core@~0.6.9:
   dependencies:
     source-list-map "~0.1.7"
     source-map "~0.4.1"
+
+webpack-deploy@productboard/webpack-deploy:
+  version "0.13.1"
+  resolved "https://codeload.github.com/productboard/webpack-deploy/tar.gz/22a7a8516f58f0336d4a7fab6422f3a132061497"
+  dependencies:
+    async "^1.4.2"
+    autoprefixer-core "^5.2.1"
+    bluebird "^3.5.0"
+    fullname "^3.0.0"
+    git-rev-promises "^1.0.8"
+    gitlog "^2.0.1"
+    glob "^7.1.2"
+    gulp "^3.9.0"
+    gulp-awspublish "^2.0.2"
+    gulp-clean "^0.3.1"
+    gulp-if "^2.0.2"
+    gulp-rename "^1.2.2"
+    gulp-svgmin "^1.2.0"
+    gulp-svgstore "^5.0.4"
+    gulp-util "^3.0.6"
+    gulp-webpack "^1.5.0"
+    html-webpack-plugin "^1.6.1"
+    object-assign "^4.0.1"
+    promise-redis "^0.0.5"
+    redis "^0.12.1"
+    request "^2.61.0"
+    request-promise-native "^1.0.4"
+    require-dir "^0.3.2"
+    superagent "^1.3.0"
+    webpack "^1.11.0"
+    yargs "^8.0.2"
 
 webpack-dev-middleware@^1.12.0:
   version "1.12.2"
